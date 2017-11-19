@@ -32,14 +32,14 @@ import packData.ModelProcess;
 
 public class MainFrame {
 	public static MyFrame myFrame;	
-	public static boolean workerType = true; 	//´ò¿ªÀàĞÍÎª±ê¼ÇÀàĞÍ»¹ÊÇ¼ì²éÀàĞÍ
+	public static boolean workerType = true; 	//æ‰“å¼€ç±»å‹ä¸ºæ ‡è®°ç±»å‹è¿˜æ˜¯æ£€æŸ¥ç±»å‹
 	public static boolean pre_worker = false;
 	public static String userID = null;
 	public static boolean isOpen = false;
-	public static int checkSta;					//¼ì²éÕßµÄ×´Ì¬
-	public static int checkStaNum = 1;			//¼ì²éµÄ´ÎÊı
-	public static boolean numFlag = false;		//ÓÃÀ´ÅĞ¶ÏcheckStaNumµÄ×´Ì¬
-	public static String strS ;					//¼ÇÂ¼Ñ¡Ôñ¼ì²é×´Ì¬µÄ×Ö·û´®
+	public static int checkSta;					//æ£€æŸ¥è€…çš„çŠ¶æ€
+	public static int checkStaNum = 1;			//æ£€æŸ¥çš„æ¬¡æ•°
+	public static boolean numFlag = false;		//ç”¨æ¥åˆ¤æ–­checkStaNumçš„çŠ¶æ€
+	public static String strS ;					//è®°å½•é€‰æ‹©æ£€æŸ¥çŠ¶æ€çš„å­—ç¬¦ä¸²
 	public static void main(String[] args) {
 		
 		myFrame = new MyFrame();
@@ -53,7 +53,7 @@ public class MainFrame {
 				// TODO Auto-generated method stub
 				super.windowClosing(e);
 				
-				//¹Ø±ÕÊ±Ö´ĞĞµÄ¶¯×÷
+				//å…³é—­æ—¶æ‰§è¡Œçš„åŠ¨ä½œ
 				
 				boolean tmpN = false;
 				String txtPath11 = MyFrame.r+"\\"+ModelProcess.folderName+"_MPhoto"+"\\data\\ImgCache.txt";
@@ -100,13 +100,13 @@ public class MainFrame {
 				{
 					
 					DataProcess.openCheckXml();
-					try {
-						DataProcess.overTxtToXML(DataProcess.pathData+"\\imgCache.txt");
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					
+//					try {
+//						DataProcess.overTxtToXML(DataProcess.pathData+"\\imgCache.txt");
+//					} catch (IOException e1) {
+//						// TODO Auto-generated catch block
+//						e1.printStackTrace();
+//					}
+//					
 					
 					
 					
@@ -154,18 +154,18 @@ public class MainFrame {
 				        }
 				        
 				        
-				        if(sTmp1 != null)
-				    	{
-				    		DataProcess.dataToValCH(sTmp1);
-				    	}
-				        if(sTmp2 != null)
-				    	{
-				    		DataProcess.dataToTrainCH(sTmp2);
-				    	}
-				        if(sTmp != null)
-				        {
-				        	DataProcess.dataToTrainvalCH(sTmp);
-				        }
+//				        if(sTmp1 != null)
+//				    	{
+//				    		DataProcess.dataToValCH(sTmp1);
+//				    	}
+//				        if(sTmp2 != null)
+//				    	{
+//				    		DataProcess.dataToTrainCH(sTmp2);
+//				    	}
+//				        if(sTmp != null)
+//				        {
+//				        	DataProcess.dataToTrainvalCH(sTmp);
+//				        }
 						read.close();
 						br.close();
 					} catch (IOException e1) {
@@ -175,7 +175,7 @@ public class MainFrame {
 				}
 				else
 				{
-					//¼ì²éÕßÄ£Ê½
+					//æ£€æŸ¥è€…æ¨¡å¼
 				}
 			
 				System.exit(0);
@@ -185,9 +185,9 @@ public class MainFrame {
 		});
 
 	}
-	//×Ô¶¨Òå¶Ô»°¿ò
+	//è‡ªå®šä¹‰å¯¹è¯æ¡†
 	public static void setCheck(){
-		Object[] modeType= {"±ê¼ÇÄ£Ê½","¼ì²éÄ£Ê½"};
+		Object[] modeType= {"æ ‡è®°æ¨¡å¼","æ£€æŸ¥æ¨¡å¼"};
 		int messageType = 0;
 		//Icon icon = null; 
 		Icon icon = new ImageIcon(myFrame.getClass().getResource("/image/2.png"));
@@ -197,7 +197,7 @@ public class MainFrame {
 //		if(userID == null)
 //		{
 			
-			n = JOptionPane.showOptionDialog(null,"ÇëÑ¡ÔñÊ¹ÓÃÄ£Ê½","Ä£Ê½", JOptionPane.YES_NO_OPTION, messageType ,icon, modeType, null);
+			n = JOptionPane.showOptionDialog(null,"è¯·é€‰æ‹©ä½¿ç”¨æ¨¡å¼","æ¨¡å¼", JOptionPane.YES_NO_OPTION, messageType ,icon, modeType, null);
 //			System.out.println("tttttt");
 //		}
 //		
@@ -206,18 +206,18 @@ public class MainFrame {
 			pre_worker = true;
 			MyFrame.mPR.removeAll();
 			MyPanelRight.initMarkLPR();
-			userID = JOptionPane.showInputDialog("ÇëÊäÈë±ê¼ÇÕß±àºÅ£º");
+			userID = JOptionPane.showInputDialog("è¯·è¾“å…¥æ ‡è®°è€…ç¼–å·ï¼š");
 			System.out.println("userID:" + userID);
 			if(userID == null)
 			{
 				System.exit(0);
 			}
 			if(userID.isEmpty()){
-				JOptionPane.showMessageDialog(null, "±ê¼ÇÕß±àºÅ²»ÄÜÎª¿Õ");
+				JOptionPane.showMessageDialog(null, "æ ‡è®°è€…ç¼–å·ä¸èƒ½ä¸ºç©º");
 				System.exit(0);
 			}
 
-			MyPanelRight.label.setText("±ê¼ÇÕß±àºÅ£º"+userID);
+			MyPanelRight.label.setText("æ ‡è®°è€…ç¼–å·ï¼š"+userID);
 			MyPanelRight.myJB.setEnabled(false);
 			MyFrame.unEnableCom();
 			MyFrame.mPR.repaint();
@@ -230,19 +230,19 @@ public class MainFrame {
 			MyFrame.mPR.removeAll();
 			
 			MyPanelRight.initCheckLPR();
-			userID = JOptionPane.showInputDialog("ÇëÊäÈë¼ì²éÕß±àºÅ£º"); 
+			userID = JOptionPane.showInputDialog("è¯·è¾“å…¥æ£€æŸ¥è€…ç¼–å·ï¼š"); 
 //			System.out.println("userID:" + userID);
 			if(userID == null)
 			{
 				System.exit(0);
 			}
 			if(userID.isEmpty()){
-				JOptionPane.showMessageDialog(null, "¼ì²éÕß±àºÅ²»ÄÜÎª¿Õ");
+				JOptionPane.showMessageDialog(null, "æ£€æŸ¥è€…ç¼–å·ä¸èƒ½ä¸ºç©º");
 				System.exit(0);
 			}
 //			else
 //			{
-				MyPanelRight.label.setText("¼ì²éÕß±àºÅ£º"+userID);
+				MyPanelRight.label.setText("æ£€æŸ¥è€…ç¼–å·ï¼š"+userID);
 				MyPanelRight.comMiss.setEnabled(false);
 				MyPanelRight.allRight.setEnabled(false);
 				MyFrame.mPR.repaint();
@@ -269,12 +269,12 @@ public class MainFrame {
 //
 	}
 	
-	public static void chooseCheckStatus(){		//¼ì²éÕßµÄ¼ì²é×´Ì¬
+	public static void chooseCheckStatus(){		//æ£€æŸ¥è€…çš„æ£€æŸ¥çŠ¶æ€
 		if(!workerType)
 		{
 			Icon icon = new ImageIcon(myFrame.getClass().getResource("/image/2.png"));
-			Object[] obj = {"½øĞĞĞÂÒ»ÂÖ¼ì²é","Î´Íê³É±¾´Î¼ì²é£¬¼ÌĞø¼ì²é"};
-			String s = (String) JOptionPane.showInputDialog(null,"×¢Òâ£ºÌá½»¹ıÎÄ¼ş¼Ğ²ÅËãÍê³ÉÒ»´Î¼ì²é:\n", "¼ì²é×´Ì¬", JOptionPane.PLAIN_MESSAGE, icon, obj, "Î´Ìá½»¹ı¼ì²é¼ÇÂ¼");
+			Object[] obj = {"è¿›è¡Œæ–°ä¸€è½®æ£€æŸ¥","æœªå®Œæˆæœ¬æ¬¡æ£€æŸ¥ï¼Œç»§ç»­æ£€æŸ¥"};
+			String s = (String) JOptionPane.showInputDialog(null,"æ³¨æ„ï¼šæäº¤è¿‡æ–‡ä»¶å¤¹æ‰ç®—å®Œæˆä¸€æ¬¡æ£€æŸ¥:\n", "æ£€æŸ¥çŠ¶æ€", JOptionPane.PLAIN_MESSAGE, icon, obj, "æœªæäº¤è¿‡æ£€æŸ¥è®°å½•");
 			
 			strS = s;
 			
