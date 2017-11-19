@@ -349,7 +349,7 @@ public class DataProcess {
 			}
 			else
 			{
-				System.out.println("ÕâÀïÊÇ²»ÊÇÃ»ÔËĞĞ");
+				System.out.println("è¿™é‡Œæ˜¯ä¸æ˜¯æ²¡è¿è¡Œ");
 				sTmp += caStr.get(m) + System.getProperty("line.separator");
 				System.out.println(sTmp);
 			}
@@ -363,7 +363,7 @@ public class DataProcess {
 
 	}
 	
-	public static void mdirBack(){		//Áô×÷ÑĞ¾¿±¸ÓÃ
+	public static void mdirBack(){		//ç•™ä½œç ”ç©¶å¤‡ç”¨
 		String back_pathRoot = MyFrame.r +"\\"+ModelProcess.folderName+"_MPhoto-try";
 //		System.out.println("pathRoot:" + pathRoot);
 		File f1 = new File(back_pathRoot);
@@ -403,7 +403,7 @@ public class DataProcess {
 		} 
 		
 		
-		// fileName±íÊ¾Äã´´½¨µÄÎÄ¼şÃû£»ÎªtxtÀàĞÍ£»
+		// fileNameè¡¨ç¤ºä½ åˆ›å»ºçš„æ–‡ä»¶åï¼›ä¸ºtxtç±»å‹ï¼›
 		String fileImgC="ImgCache.txt";
 		File file1 = new File(f2,fileImgC);
 		if(!file1.exists()){
@@ -462,7 +462,7 @@ public class DataProcess {
 	}
 	
 	public static void mdir(){
-		//path±íÊ¾ÄãËù´´½¨ÎÄ¼şµÄÂ·¾¶
+		//pathè¡¨ç¤ºä½ æ‰€åˆ›å»ºæ–‡ä»¶çš„è·¯å¾„
 		pathRoot = MyFrame.r +"\\"+ModelProcess.folderName+"_MPhoto";
 //		System.out.println("pathRoot:" + pathRoot);
 		File f1 = new File(pathRoot);
@@ -502,7 +502,7 @@ public class DataProcess {
 		} 
 		
 		
-		// fileName±íÊ¾Äã´´½¨µÄÎÄ¼şÃû£»ÎªtxtÀàĞÍ£»
+		// fileNameè¡¨ç¤ºä½ åˆ›å»ºçš„æ–‡ä»¶åï¼›ä¸ºtxtç±»å‹ï¼›
 		String fileImgC="ImgCache.txt";
 		File file1 = new File(f2,fileImgC);
 		if(!file1.exists()){
@@ -605,10 +605,7 @@ public class DataProcess {
 		
         File file = new File(txtPath);
          
-        Document document = DocumentHelper.createDocument();
-         
-         
-        Element annotation = document.addElement("annotation");
+        
          
         FileReader read = new FileReader(file);
         BufferedReader br = new BufferedReader(read);
@@ -616,13 +613,17 @@ public class DataProcess {
          
         String line = null;
 			line = br.readLine();
-	
-        Element folder = annotation.addElement("folder");
-        Element filename = annotation.addElement("filename");
+			
         
         String lineTmp = "";
         while(line != null)
         {
+        	Document document = DocumentHelper.createDocument();
+	         
+	         
+	        Element annotation = document.addElement("annotation");
+        Element folder = annotation.addElement("folder");
+        Element filename = annotation.addElement("filename");
         	lineTmp = line;
         
         
@@ -756,7 +757,7 @@ public class DataProcess {
 	public static boolean deleteDir(File dir) {
         if (dir.isDirectory()) {
             String[] children = dir.list();
-            //µİ¹éÉ¾³ıÄ¿Â¼ÖĞµÄ×ÓÄ¿Â¼ÏÂ
+            //é€’å½’åˆ é™¤ç›®å½•ä¸­çš„å­ç›®å½•ä¸‹
             for (int i=0; i<children.length; i++) {
                 boolean success = deleteDir(new File(dir, children[i]));
                 if (!success) {
@@ -764,7 +765,7 @@ public class DataProcess {
                 }
             }
         }
-        // Ä¿Â¼´ËÊ±Îª¿Õ£¬¿ÉÒÔÉ¾³ı
+        // ç›®å½•æ­¤æ—¶ä¸ºç©ºï¼Œå¯ä»¥åˆ é™¤
         return dir.delete();
     }
 	
